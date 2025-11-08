@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <title>CarbonShop – Termékválasztás</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f4f4f4;
+    }
+    .container {
+      max-width: 600px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+    }
+    h2 {
+      color: #2c3e50;
+    }
+    label, select, input {
+      display: block;
+      margin: 10px 0;
+    }
+    button {
+      background-color: #27ae60;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    #total {
+      font-weight: bold;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Termékválasztás</h2>
+
+    <label for="product">Válassz terméket:</label>
+    <select id="product" onchange="updatePrice()">
+      <option value="solar">Napelem modul – 50 000 Ft</option>
+      <option value="battery">Energiatároló egység – 120 000 Ft</option>
+    </select>
+
+    <label for="quantity">Darabszám:</label>
+    <input type="number" id="quantity" value="1" min="1" onchange="updatePrice()">
+
+    <p id="total">Összesen: 50 000 Ft</p>
+
+    <button onclick="alert('Ez csak próba!')">Megrendelem</button>
+  </div>
+
+  <script>
+    function updatePrice() {
+      const product = document.getElementById("product").value;
+      const quantity = parseInt(document.getElementById("quantity").value);
+      let price = product === "solar" ? 50000 : 120000;
+      document.getElementById("total").innerText = `Összesen: ${price * quantity} Ft`;
+    }
+  </script>
+</body>
+</html>
