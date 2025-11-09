@@ -1,163 +1,83 @@
-<!DOCTYPE html>
-<html lang="hu">
-<head>
-  <meta charset="UTF-8">
-  <title>CarbonShop – Termékválasztás és Kalkuláció</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #eef2f3;
-      margin: 0;
-      padding: 0;
-    }
-    header {
-      background-color: #2c3e50;
-      color: white;
-      padding: 20px;
-      text-align: center;
-    }
-    .container {
-      max-width: 800px;
-      margin: 30px auto;
-      background: white;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-    h2 {
-      color: #2c3e50;
-      margin-bottom: 20px;
-    }
-    label {
-      font-weight: bold;
-    }
-    select, input {
-      width: 100%;
-      padding: 10px;
-      margin: 10px 0 20px 0;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-    }
-    button {
-      background-color: #27ae60;
-      color: white;
-      border: none;
-      padding: 12px 20px;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 16px;
-    }
-    #total {
-      font-size: 18px;
-      font-weight: bold;
-      margin-top: 10px;
-    }
-    .note {
-      font-size: 14px;
-      color: #888;
-      margin-top: 20px;
-    }
-    .table-preview {
-      margin-top: 40px;
-      border-top: 1px solid #ccc;
-      padding-top: 20px;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 10px;
-    }
-    th, td {
-      border: 1px solid #ccc;
-      padding: 10px;
-      text-align: center;
-    }
-    th {
-      background-color: #f0f0f0;
-    }
-  </style>
-</head>
-<body>
+<!-- Vissza gomb -->
+<a href="index.html" style="display:inline-block; margin:20px 0; background:#3498db; color:white; padding:10px 20px; border-radius:5px; text-decoration:none;">⬅️ Vissza a főoldalra</a>
 
-  <header>
-    <h1>CarbonShop – Termékválasztás</h1>
-    <p>Válassz modulokat, számold ki az összesítést, és később kutassunk együtt!</p>
-  </header>
-
-  <div class="container">
-    <h2>Termék kiválasztása</h2>
-
-    <label for="product">Termék típusa:</label>
-    <select id="product" onchange="updatePrice()">
-      <option value="solar">Napelem modul – 50 000 Ft</option>
-      <option value="battery">Energiatároló egység – 120 000 Ft</option>
-      <option value="inverter">Inverter – 80 000 Ft</option>
-      <option value="monitor">Energiamonitor – 35 000 Ft</option>
-    </select>
-
-    <label for="quantity">Darabszám:</label>
-    <input type="number" id="quantity" value="1" min="1" onchange="updatePrice()">
-
-    <p id="total">Összesen: 50 000 Ft</p>
-
-    <button onclick="alert('Ez csak próba!')">Megrendelem</button>
-
-    <div class="note">
-      Ez egy próba funkció – később bővíthető PDF letöltéssel, kutatási modellel és grafikonokkal.
-    </div>
-
-    <div class="table-preview">
-      <h3>📊 Összehasonlító táblázat (tervezés alatt)</h3>
-      <table>
-        <tr>
-          <th>Termék</th>
-          <th>Ár (Ft)</th>
-          <th>Energiahatás</th>
-          <th>Megjegyzés</th>
-        </tr>
-        <tr>
-          <td>Napelem modul</td>
-          <td>50 000</td>
-          <td>300 W</td>
-          <td>Alap energiaforrás</td>
-        </tr>
-        <tr>
-          <td>Energiatároló</td>
-          <td>120 000</td>
-          <td>2 kWh</td>
-          <td>Éjszakai tárolás</td>
-        </tr>
-        <tr>
-          <td>Inverter</td>
-          <td>80 000</td>
-          <td>DC → AC</td>
-          <td>Hálózati csatlakozás</td>
-        </tr>
-        <tr>
-          <td>Monitor</td>
-          <td>35 000</td>
-          <td>Adatkövetés</td>
-          <td>Statisztika, grafikon</td>
-        </tr>
-      </table>
-    </div>
+<!-- Termékválasztás képekkel -->
+<h2>Válassz terméket</h2>
+<div style="display:flex; gap:20px; flex-wrap:wrap;">
+  <div onclick="selectProduct('solar')" style="cursor:pointer; text-align:center;">
+    <img src="solar.png" alt="Napelem" style="height:100px;"><br>
+    <strong>Napelem modul</strong><br>50 000 Ft
   </div>
+  <div onclick="selectProduct('battery')" style="cursor:pointer; text-align:center;">
+    <img src="battery.png" alt="Tároló" style="height:100px;"><br>
+    <strong>Energiatároló</strong><br>120 000 Ft
+  </div>
+  <div onclick="selectProduct('inverter')" style="cursor:pointer; text-align:center;">
+    <img src="inverter.png" alt="Inverter" style="height:100px;"><br>
+    <strong>Inverter</strong><br>80 000 Ft
+  </div>
+</div>
 
-  <script>
-    let prices = {
-      solar: 50000,
-      battery: 120000,
-      inverter: 80000,
-      monitor: 35000
-    };
+<!-- Kalkuláció -->
+<label for="quantity">Darabszám:</label>
+<input type="number" id="quantity" value="1" min="1" onchange="updatePrice()">
+<p id="total">Összesen: 50 000 Ft</p>
+<p id="payback">Megtérülés: kb. 10 év</p>
 
-    function updatePrice() {
-      const product = document.getElementById("product").value;
-      const quantity = parseInt(document.getElementById("quantity").value);
-      const price = prices[product];
-      document.getElementById("total").innerText = `Összesen: ${price * quantity} Ft`;
-    }
-  </script>
+<!-- Táblázat -->
+<h3>📊 Összehasonlító táblázat</h3>
+<table>
+  <tr>
+    <th>Termék</th>
+    <th>Ár</th>
+    <th>Energiahozam</th>
+    <th>Megtérülés</th>
+  </tr>
+  <tr>
+    <td>Napelem modul</td>
+    <td>50 000 Ft</td>
+    <td>300 kWh/év</td>
+    <td>10–12 év</td>
+  </tr>
+  <tr>
+    <td>Energiatároló</td>
+    <td>120 000 Ft</td>
+    <td>2 kWh/nap</td>
+    <td>8–10 év</td>
+  </tr>
+  <tr>
+    <td>Inverter</td>
+    <td>80 000 Ft</td>
+    <td>DC → AC</td>
+    <td>10 év</td>
+  </tr>
+</table>
 
-</body>
-</html>
+<script>
+let prices = {
+  solar: 50000,
+  battery: 120000,
+  inverter: 80000
+};
+
+let paybacks = {
+  solar: 10,
+  battery: 9,
+  inverter: 10
+};
+
+let selectedProduct = 'solar';
+
+function selectProduct(product) {
+  selectedProduct = product;
+  updatePrice();
+}
+
+function updatePrice() {
+  const quantity = parseInt(document.getElementById("quantity").value);
+  const price = prices[selectedProduct];
+  const payback = paybacks[selectedProduct];
+  document.getElementById("total").innerText = `Összesen: ${price * quantity} Ft`;
+  document.getElementById("payback").innerText = `Megtérülés: kb. ${payback} év`;
+}
+</script>
