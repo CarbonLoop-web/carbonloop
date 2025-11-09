@@ -1,114 +1,226 @@
-<!-- Vissza gomb -->
-<a href="index.html" style="display:inline-block; margin:20px 0; background:#3498db; color:white; padding:10px 20px; border-radius:5px; text-decoration:none;">⬅️ Vissza a főoldalra</a>
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <title>CarbonShop – Termékválasztás</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #eef2f3;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #2c3e50;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    .container {
+      max-width: 900px;
+      margin: 30px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h2, h3 {
+      color: #2c3e50;
+      margin-top: 30px;
+    }
+    label {
+      font-weight: bold;
+    }
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0 20px 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background-color: #27ae60;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .product-grid {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+    .product-item {
+      text-align: center;
+      cursor: pointer;
+      flex: 1 1 200px;
+    }
+    .product-item img {
+      height: 100px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 10px;
+      text-align: center;
+    }
+    th {
+      background-color: #f0f0f0;
+    }
+    .info-box {
+      background: #f9f9f9;
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 30px;
+    }
+    .back-button {
+      display:inline-block;
+      margin-bottom:20px;
+      background:#3498db;
+      color:white;
+      padding:10px 20px;
+      border-radius:5px;
+      text-decoration:none;
+    }
+  </style>
+</head>
+<body>
 
-<!-- Termékválasztás képekkel -->
-<h2>Válassz terméket</h2>
-<div style="display:flex; gap:20px; flex-wrap:wrap;">
-  <div onclick="selectProduct('solar')" style="cursor:pointer; text-align:center;">
-    <img src="solar.png" alt="Napelem" style="height:100px;"><br>
-    <strong>Napelem modul</strong><br>50 000 Ft
+  <header>
+    <h1>CarbonShop – Termékválasztás</h1>
+    <p>Válassz modulokat, számold ki az összesítést, és rendelj elő!</p>
+  </header>
+
+  <div class="container">
+    <a href="index.html" class="back-button">⬅️ Vissza a főoldalra</a>
+
+    <h2>🛒 Termék kiválasztása</h2>
+    <div class="product-grid">
+      <div class="product-item" onclick="selectProduct('solar')">
+        <img src="solar.png" alt="Napelem modul">
+        <strong>Napelem modul</strong><br>50 000 Ft
+        <p style="font-size:14px; color:#555;">300 kWh/év termelés, ideális háztartásoknak.</p>
+      </div>
+      <div class="product-item" onclick="selectProduct('battery')">
+        <img src="battery.png" alt="Energiatároló">
+        <strong>Energiatároló</strong><br>120 000 Ft
+        <p style="font-size:14px; color:#555;">2 kWh/nap tárolás, éjszakai használatra.</p>
+      </div>
+      <div class="product-item" onclick="selectProduct('inverter')">
+        <img src="inverter.png" alt="Inverter">
+        <strong>Inverter</strong><br>80 000 Ft
+        <p style="font-size:14px; color:#555;">DC → AC átalakítás, hálózati csatlakozás.</p>
+      </div>
+    </div>
+
+    <label for="quantity">Darabszám:</label>
+    <input type="number" id="quantity" value="1" min="1" onchange="updatePrice()">
+    <p id="total">Összesen: 50 000 Ft</p>
+    <p id="payback">Megtérülés: kb. 10 év</p>
+
+    <h3>📊 Összehasonlító táblázat</h3>
+    <table>
+      <tr>
+        <th>Termék</th>
+        <th>Ár</th>
+        <th>Energiahozam</th>
+        <th>Megtérülés</th>
+      </tr>
+      <tr>
+        <td>Napelem modul</td>
+        <td>50 000 Ft</td>
+        <td>300 kWh/év</td>
+        <td>10–12 év</td>
+      </tr>
+      <tr>
+        <td>Energiatároló</td>
+        <td>120 000 Ft</td>
+        <td>2 kWh/nap</td>
+        <td>8–10 év</td>
+      </tr>
+      <tr>
+        <td>Inverter</td>
+        <td>80 000 Ft</td>
+        <td>DC → AC</td>
+        <td>10 év</td>
+      </tr>
+    </table>
+
+    <div class="info-box">
+      <h3>🚚 Szállítás</h3>
+      <ul>
+        <li>Magyarországon belül: 3–5 munkanap</li>
+        <li>Ingyenes szállítás 100 000 Ft felett</li>
+        <li>Futárszolgálat vagy személyes átvétel</li>
+      </ul>
+
+      <h3>🛡️ Garancia</h3>
+      <p>5 év teljes körű garancia minden termékre. Technikai támogatás elérhető e-mailben és telefonon.</p>
+    </div>
+
+    <section id="order" class="info-box">
+      <h2>📦 Előrendelés</h2>
+      <form>
+        <label for="name">Név:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="product">Termék típusa:</label>
+        <select id="product" name="product">
+          <option value="solar">Napelem modul</option>
+          <option value="battery">Energiatároló</option>
+          <option value="inverter">Inverter</option>
+        </select>
+
+        <label for="quantity">Darabszám:</label>
+        <input type="number" id="orderQuantity" name="quantity" min="1" value="1">
+
+        <button type="submit" onclick="event.preventDefault(); alert('Köszönjük, előrendelés rögzítve!')">✅ Előrendelés</button>
+      </form>
+    </section>
+
+    <a href="index.html" class="back-button">📬 Kérdésed van? Vissza a kapcsolat oldalra</a>
   </div>
-  <div onclick="selectProduct('battery')" style="cursor:pointer; text-align:center;">
-    <img src="battery.png" alt="Tároló" style="height:100px;"><br>
-    <strong>Energiatároló</strong><br>120 000 Ft
-  </div>
-  <div onclick="selectProduct('inverter')" style="cursor:pointer; text-align:center;">
-    <img src="inverter.png" alt="Inverter" style="height:100px;"><br>
-    <strong>Inverter</strong><br>80 000 Ft
-  </div>
-</div>
 
-<!-- Kalkuláció -->
-<label for="quantity">Darabszám:</label>
-<input type="number" id="quantity" value="1" min="1" onchange="updatePrice()">
-<p id="total">Összesen: 50 000 Ft</p>
-<p id="payback">Megtérülés: kb. 10 év</p>
+  <script>
+    let prices = {
+      solar: 50000,
+      battery: 120000,
+      inverter: 80000
+    };
 
-<!-- Táblázat -->
-<h3>📊 Összehasonlító táblázat</h3>
-<table>
-  <tr>
-    <th>Termék</th>
-    <th>Ár</th>
-    <th>Energiahozam</th>
-    <th>Megtérülés</th>
-  </tr>
-  <tr>
-    <td>Napelem modul</td>
-    <td>50 000 Ft</td>
-    <td>300 kWh/év</td>
-    <td>10–12 év</td>
-  </tr>
-  <tr>
-    <td>Energiatároló</td>
-    <td>120 000 Ft</td>
-    <td>2 kWh/nap</td>
-    <td>8–10 év</td>
-  </tr>
-  <tr>
-    <td>Inverter</td>
-    <td>80 000 Ft</td>
-    <td>DC → AC</td>
-    <td>10 év</td>
-  </tr>
-</table>
-<section id="order" style="margin-top:40px; padding:20px; background:#f9f9f9; border-radius:10px;">
-  
-  <form><h2>📦 Előrendelés</h2>
-<form style="max-width:500px; margin-top:20px;">
-  <label for="name">Név:</label>
-  <input type="text" id="name" name="name" required style="width:100%; padding:8px; margin-bottom:10px;">
+    let paybacks = {
+      solar: 10,
+      battery: 9,
+      inverter: 10
+    };
 
-  <label for="email">E-mail:</label>
-  <input type="email" id="email" name="email" required style="width:100%; padding:8px; margin-bottom:10px;">
+    let selectedProduct = 'solar';
 
-  <label for="product">Termék típusa:</label>
-  <select id="product" name="product" style="width:100%; padding:8px; margin-bottom:10px;">
-    <option value="solar">Napelem modul</option>
-    <option value="battery">Energiatároló</option>
-    <option value="inverter">Inverter</option>
-  </select>
+    function selectProduct(product) {
+      selectedProduct = product;
+      updatePrice();
+    }
 
-  <label for="quantity">Darabszám:</label>
-  <input type="number" id="quantity" name="quantity" min="1" value="1" style="width:100%; padding:8px; margin-bottom:10px;">
+    function updatePrice() {
+      const quantity = parseInt(document.getElementById("quantity").value);
+      const price = prices[selectedProduct];
+      const payback = paybacks[selectedProduct];
+      document.getElementById("total").innerText = `Összesen: ${price * quantity} Ft`;
+      document.getElementById("payback").innerText = `Megtérülés: kb. ${payback} év`;
+    }
+  </script>
 
-  <button type="submit" onclick="event.preventDefault(); alert('Köszönjük, előrendelés rögzítve!')" style="background:#27ae60; color:white; padding:10px 20px; border:none; border-radius:5px; cursor:pointer;">
-    ✅ Előrendelés
-  </button>
-</form>
-</form>
-</section>
-
-
-
-<script>
-let prices = {
-  solar: 50000,
-  battery: 120000,
-  inverter: 80000
-};
-
-let paybacks = {
-  solar: 10,
-  battery: 9,
-  inverter: 10
-};
-
-let selectedProduct = 'solar';
-
-function selectProduct(product) {
-  selectedProduct = product;
-  updatePrice();
-}
-
-function updatePrice() {
-  const quantity = parseInt(document.getElementById("quantity").value);
-  const price = prices[selectedProduct];
-  const payback = paybacks[selectedProduct];
-  document.getElementById("total").innerText = `Összesen: ${price * quantity} Ft`;
-  document.getElementById("payback").innerText = `Megtérülés: kb. ${payback} év`;
-}
-</script>
-
+</body>
+</html>
 
 
