@@ -52,6 +52,33 @@
     <td>10 év</td>
   </tr>
 </table>
+<section id="order">
+  <h2>📦 Előrendelés</h2>
+  <form>... <h2>📦 Előrendelés</h2>
+<form style="max-width:500px; margin-top:20px;">
+  <label for="name">Név:</label>
+  <input type="text" id="name" name="name" required style="width:100%; padding:8px; margin-bottom:10px;">
+
+  <label for="email">E-mail:</label>
+  <input type="email" id="email" name="email" required style="width:100%; padding:8px; margin-bottom:10px;">
+
+  <label for="product">Termék típusa:</label>
+  <select id="product" name="product" style="width:100%; padding:8px; margin-bottom:10px;">
+    <option value="solar">Napelem modul</option>
+    <option value="battery">Energiatároló</option>
+    <option value="inverter">Inverter</option>
+  </select>
+
+  <label for="quantity">Darabszám:</label>
+  <input type="number" id="quantity" name="quantity" min="1" value="1" style="width:100%; padding:8px; margin-bottom:10px;">
+
+  <button type="submit" onclick="event.preventDefault(); alert('Köszönjük, előrendelés rögzítve!')" style="background:#27ae60; color:white; padding:10px 20px; border:none; border-radius:5px; cursor:pointer;">
+    ✅ Előrendelés
+  </button>
+</form>
+ ...</form>
+</section>
+
 
 <script>
 let prices = {
@@ -81,3 +108,4 @@ function updatePrice() {
   document.getElementById("payback").innerText = `Megtérülés: kb. ${payback} év`;
 }
 </script>
+
