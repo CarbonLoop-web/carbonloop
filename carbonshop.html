@@ -221,10 +221,32 @@
       document.getElementById("total").innerText = `Összesen: ${price * quantity} Ft`;
       document.getElementById("payback").innerText = `Megtérülés: kb. ${payback} év`;
     }
+    function generatePDF() {
+  const name = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
+  const product = document.getElementById("product").value;
+  const quantity = document.getElementById("orderQuantity").value;
+  const price = prices[product] * quantity;
+  const payback = paybacks[product];
+
+  const content = `
+    Vásárló neve: ${name}
+    E-mail: ${email}
+    Termék: ${product}
+    Darabszám: ${quantity}
+    Összes ár: ${price} Ft
+    Megtérülés: kb. ${payback} év
+    Dátum: ${new Date().toLocaleDateString()}
+  `;
+
+  alert("Ez lenne a PDF tartalma:\n\n" + content + "\n\n(Később letölthető PDF lesz)");
+}
+
   </script>
 
 </body>
 </html>
+
 
 
 
