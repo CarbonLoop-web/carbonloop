@@ -135,36 +135,6 @@
         width: 80%;
       }
     }
-
-    /* Váltós kép stílus */
-    .image-toggle-box {
-      position: relative;
-      width: 320px;
-      margin: 40px auto;
-      text-align: center;
-    }
-
-    .toggle-image {
-      width: 100%;
-      border-radius: 10px;
-      transition: opacity 1s ease;
-    }
-
-    .toggle-text {
-      display: none;
-      background-color: #004080;
-      color: white;
-      padding: 20px;
-      border-radius: 10px;
-      font-weight: bold;
-      font-size: 18px;
-    }
-
-    .toggle-text a {
-      color: white;
-      text-decoration: none;
-      font-size: 18px;
-    }
   </style>
 </head>
 <body>
@@ -200,19 +170,6 @@
       <p><em>English version:</em> CarbonLoop aims to revolutionize clean energy delivery in extreme environments.</p>
     </div>
 
-    <!-- Váltós kép + PDF gomb -->
-    <div class="image-toggle-box">
-      <img src="plazma.png" alt="Plazma kép" class="toggle-image" id="plazmaImage">
-      <div class="toggle-text" id="plazmaText">
-        <a href="pdfoldal.html">📄 PDF ajánlat megtekintése</a>
-      </div>
-    </div>
-    <div style="text-align:center;">
-      <button onclick="toggleContent()" style="padding:10px 20px; font-size:16px; background:#0066cc; color:white; border:none; border-radius:6px; cursor:pointer;">
-        🔁 Mutasd a PDF gombot
-      </button>
-    </div>
-
     <div class="section" id="tech">
       <h2>Technológiai háttér</h2>
       <p>A rendszer mesterséges intelligenciával vezérelt energiaáramlást, moduláris reaktorstruktúrát és szenzorhálózatot alkalmaz.</p>
@@ -233,14 +190,16 @@
 
     <div class="buttons">
       <a href="tamogatas.html">🤝 Támogatás</a>
+      <a href="pdfoldal.html">📄 Bemutató megtekintése</a>
+      <a href="#contact">📬 Kapcsolatfelvétel</a>
+    </div>
 
+    <div class="section contact" id="contact">
+      <h2>Kapcsolat</h2>
+      <p>Email: bajczikferenc@gmail.com</p>
+    </div>
+  </div>
 
-
-
-
-
-
-
-
-
+</body>
+</html>
 
