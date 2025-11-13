@@ -12,59 +12,86 @@
       background-color: #f0f4f8;
       color: #333;
     }
+
     header {
-      background-color: #002b5c;
-      color: white;
+      animation: gradientShift 10s infinite alternate;
+      background: linear-gradient(135deg, #004080, #0066cc);
       padding: 40px 20px;
       text-align: center;
+      color: white;
+      border-bottom: 4px solid #003366;
     }
+
     header img {
       width: 80px;
       height: auto;
       margin-bottom: 10px;
     }
+
     nav {
       background-color: #004080;
       padding: 10px;
       text-align: center;
     }
+
     nav a {
       color: white;
       margin: 0 12px;
       text-decoration: none;
       font-weight: bold;
     }
+
     nav a:hover {
       text-decoration: underline;
     }
+
     .container {
       padding: 20px;
       max-width: 900px;
       margin: auto;
     }
+
     .section {
       margin-bottom: 50px;
       animation: fadeIn 1s ease-in;
     }
+
     h2 {
       color: #004080;
       margin-top: 30px;
     }
+
     .section h2::before {
       content: "🔹 ";
     }
-    img.main {
-      max-width: 100%;
-      height: auto;
-      display: block;
-      margin: 30px auto;
+
+    .main-image {
+      width: 100%;
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      transition: opacity 1s ease;
     }
+
+    .hidden {
+      display: none;
+    }
+
+    .reveal-text {
+      display: none;
+      background-color: #004080;
+      color: white;
+      padding: 20px;
+      border-radius: 10px;
+      font-weight: bold;
+      text-align: center;
+      margin-top: 20px;
+    }
+
     .buttons {
       text-align: center;
       margin: 30px 0;
     }
+
     .buttons a {
       display: inline-block;
       background-color: #004080;
@@ -75,63 +102,61 @@
       text-decoration: none;
       font-size: 16px;
     }
+
     .buttons a:hover {
       background-color: #0066cc;
     }
+
     .contact {
       background-color: #e0e0e0;
       padding: 20px;
       border-radius: 8px;
     }
+
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
+
+    @keyframes gradientShift {
+      0% { background: linear-gradient(135deg, #004080, #0066cc); }
+      50% { background: linear-gradient(135deg, #003366, #0055aa); }
+      100% { background: linear-gradient(135deg, #002b5c, #004080); }
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 1.5s ease-out forwards;
+    }
+
+    .fade-in.delay {
+      animation-delay: 0.5s;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
     @media (max-width: 600px) {
       .buttons a {
         display: block;
         margin: 10px auto;
         width: 80%;
       }
-header .header-bg {
-  animation: gradientShift 10s infinite alternate;
-  background: linear-gradient(135deg, #004080, #0066cc);
-  padding: 40px 20px;
-  text-align: center;
-  color: white;
-  border-bottom: 4px solid #003366;
-}
-@keyframes gradientShift {
-  0% { background: linear-gradient(135deg, #004080, #0066cc); }
-  50% { background: linear-gradient(135deg, #003366, #0055aa); }
-  100% { background: linear-gradient(135deg, #002b5c, #004080); }
-}
-.fade-in {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 1.5s ease-out forwards;
-}
-.fade-in.delay {
-  animation-delay: 0.5s;
-}
-@keyframes fadeInUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
     }
   </style>
 </head>
 <body>
 
-  <header class="header-bg">
+  <header>
     <img src="carbonloop_logofo.png" alt="CarbonLoop logó">
     <h1 class="fade-in">CarbonLoop – Autonóm energiarendszer</h1>
     <p class="fade-in delay">Ferenc Bajczik – kreatív technológus</p>
   </header>
-
 
   <nav>
     <a href="#home">🏠 Home</a>
@@ -139,55 +164,61 @@ header .header-bg {
     <a href="#tech">⚙️ Technológia</a>
     <a href="#team">👥 Csapat</a>
     <a href="#contact">📬 Kapcsolat</a>
-    <a href="carbonshop.html">📦 CarbonShop – Termékválasztás</a>
-    <a href="carbonintro.html">ℹ️ Projektismertető oldal</a>
+    <a href="carbonshop.html">📦 CarbonShop</a>
+    <a href="carbonintro.html">ℹ️ Projektismertető</a>
   </nav>
 
   <div class="container">
-    <img src="carbonloop-main.jpg" alt="CarbonLoop projekt képe" class="main" style="width:100%; border-radius:10px;">
 
->   <div class="section" id="home">
+    <!-- Kép + váltás -->
+    <img src="carbonloop-main.jpg" alt="CarbonLoop projekt képe" class="main-image" id="mainImage">
+    <div style="text-align:center;">
+      <button onclick="hideImage()" style="margin-top:20px; padding:10px 20px; font-size:16px; background:#0066cc; color:white; border:none; border-radius:6px; cursor:pointer;">
+        🔁 Mutasd a szöveget
+      </button>
+    </div>
+    <div class="reveal-text" id="revealText">
+      📄 Ez a CarbonLoop projekt bemutatója. További részletekért látogasd meg a <a href="pdfoldal.html" style="color:#fff; text-decoration:underline;">PDF oldalt</a>.
+    </div>
+
+    <div class="section" id="home">
       <h2>Bemutatkozás</h2>
       <p>Ferenc Bajczik vagyok, kreatív technológus. Szenvedélyesen dolgozom olyan megoldásokon, amelyek valódi hatást gyakorolnak a világra.</p>
-      <p><em>English version:</em> I’m Ferenc Bajczik, a creative technologist passionate about building solutions that make a real difference.</p>
     </div>
 
     <div class="section" id="project">
       <h2>Projekt leírása</h2>
       <p>A CarbonLoop célja, hogy új szintre emelje a tiszta energiaellátást extrém környezetekben.</p>
-      <p><em>English version:</em> CarbonLoop aims to revolutionize clean energy delivery in extreme environments.</p>
     </div>
 
     <div class="section" id="tech">
       <h2>Technológiai háttér</h2>
       <p>A rendszer mesterséges intelligenciával vezérelt energiaáramlást, moduláris reaktorstruktúrát és szenzorhálózatot alkalmaz.</p>
-      <p><em>English version:</em> The system uses AI-driven energy flow control, modular reactor architecture, and sensor networks.</p>
-    </div>
-
-    <div class="section">
-      <h2>Fejlesztési ütemterv</h2>
-      <p>2025 – Prototípus fejlesztés<br>2026 – Validáció és tesztelés<br>2027 – Pilot telepítések<br>2028 – Globális skálázás</p>
-      <p><em>English version:</em> 2025 – Prototype development<br>2026 – Validation and testing<br>2027 – Pilot deployments<br>2028 – Global scaling</p>
     </div>
 
     <div class="section" id="team">
       <h2>Csapat</h2>
       <p>Multidiszciplináris csapat: fizikusok, mérnökök, fejlesztők és környezetvédelmi szakértők.</p>
-      <p><em>English version:</em> A multidisciplinary team: physicists, engineers, developers, and environmental experts.</p>
     </div>
 
     <div class="buttons">
-  <a href="tamogatas.html">🤝 Támogatás</a>
-  <a href="pdfoldal.html">📄 Bemutató megtekintése</a>
-  <a href="#contact">📬 Kapcsolatfelvétel</a>
-</div>
-
+      <a href="tamogatas.html">🤝 Támogatás</a>
+      <a href="pdfoldal.html">📄 Bemutató megtekintése</a>
+      <a href="#contact">📬 Kapcsolatfelvétel</a>
+    </div>
 
     <div class="section contact" id="contact">
       <h2>Kapcsolat</h2>
       <p>Email: bajczikferenc@gmail.com</p>
     </div>
   </div>
+
+  <script>
+    function hideImage() {
+      document.getElementById("mainImage").style.display = "none";
+      document.getElementById("revealText").style.display = "block";
+    }
+  </script>
 
 </body>
 </html>
