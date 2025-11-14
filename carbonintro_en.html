@@ -9,57 +9,84 @@
     .section { background: white; padding: 20px; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
     .lang-switch, .back-link { text-align: right; margin-bottom: 10px; }
     a { text-decoration: none; font-weight: bold; color: #2c3e50; }
+    nav { background:#004080; padding:10px; text-align:center; margin-bottom:20px; }
+    nav a { color:white; margin:0 12px; text-decoration:none; font-weight:bold; }
+    nav a:hover { text-decoration:underline; }
+    input, textarea { border:1px solid #ccc; border-radius:6px; }
   </style>
 </head>
 <body>
+
   <div style="text-align:center; margin-bottom:20px;">
-  <img src="carbonloop_logo.png" alt="CarbonLoop logo" style="max-width:150px;">
-</div>
-<div class="lang-switch">
-    <a href="carbonintro.html">🇭🇺 Magyar változat</a>
+    <img src="carbonloop_logo.png" alt="CarbonLoop logo" style="max-width:150px;">
   </div>
+
+  <!-- Navigation -->
+  <nav>
+    <a href="#focus">🔬 Focus Areas</a>
+    <a href="#research">📊 Research</a>
+    <a href="#collaboration">🤝 Collaboration</a>
+    <a href="#investors">💼 Investors</a>
+    <a href="#contact">📬 Contact</a>
+    <a href="carbonintro.html">🇭🇺 HU</a>
+    <a href="index-en.html">🇬🇧 EN</a>
+  </nav>
 
   <h1>🌍 CarbonLoop – Independent Climate Research Initiative</h1>
 
-  <div class="section">
+  <div class="section" id="focus">
     <h2>🔬 Focus Areas</h2>
     <p>Direct Air Capture (DAC), CCUS, energy efficiency, water replenishment, and decentralized energy systems.</p>
   </div>
 
-  <div class="section">
+  <div class="section" id="research">
     <h2>📊 Research Directions</h2>
     <p>Lake Velence water strategies, sustainable heating, long-term carbon storage, modular energy for homes.</p>
   </div>
 
-  <div class="section">
+  <div class="section" id="collaboration">
     <h2>🤝 Collaboration</h2>
     <p>We welcome collaboration with researchers, engineers, and institutions focused on practical, scalable solutions.</p>
   </div>
 
-  <div class="section">
+  <div class="section" id="investors">
+    <h2>💼 For Investors</h2>
+    <p><strong>Business Model:</strong> CarbonLoop provides scalable clean energy solutions for extreme environments, combining modular design with AI-driven optimization. Our model is based on licensing, pilot deployments, and strategic partnerships.</p>
+    
+    <p><strong>ROI:</strong> Expected return on investment within 3–5 years through pilot projects, technology licensing, and expansion into high-demand markets.</p>
+    
+    <p><strong>Market:</strong> The global demand for autonomous clean energy systems is rapidly growing, especially in remote industries, disaster relief, and defense applications. CarbonLoop addresses a niche with high growth potential.</p>
+    
+    <p><strong>Technology Advantage:</strong> AI-driven energy flow control, modular reactor architecture, and advanced sensor networks provide unmatched reliability and adaptability compared to conventional systems.</p>
+    
+    <p><strong>Summary:</strong> CarbonLoop is positioned to deliver both environmental impact and financial value, making it a compelling opportunity for forward-looking investors.</p>
+  </div>
+
+  <div class="section" id="contact">
     <h2>📬 Contact</h2>
     <p><strong>Name:</strong> Ferenc<br>
        <strong>Email:</strong> ferenc@email.hu<br>
        <strong>Project:</strong> CarbonLoop / CarbonShop</p>
+
+    <!-- Contact Form -->
+    <form action="mailto:ferenc@email.hu" method="post" enctype="text/plain">
+      <label>Name:</label><br>
+      <input type="text" name="name" style="width:100%; padding:8px;"><br><br>
+      <label>Email:</label><br>
+      <input type="email" name="email" style="width:100%; padding:8px;"><br><br>
+      <label>Message:</label><br>
+      <textarea name="message" rows="5" style="width:100%; padding:8px;"></textarea><br><br>
+      <input type="submit" value="Send" style="padding:10px 20px; background:#004080; color:white; border:none; border-radius:6px; cursor:pointer;">
+    </form>
   </div>
 
   <div class="back-link">
     <a href="index.html">⬅️ Back to main page</a>
   </div>
-  <div class="section" id="investors">
-  <h2>For Investors</h2>
-  <p><strong>Business Model:</strong> CarbonLoop provides scalable clean energy solutions for extreme environments, combining modular design with AI-driven optimization. Our model is based on licensing, pilot deployments, and strategic partnerships.</p>
-  
-  <p><strong>ROI:</strong> Expected return on investment within 3–5 years through pilot projects, technology licensing, and expansion into high-demand markets.</p>
-  
-  <p><strong>Market:</strong> The global demand for autonomous clean energy systems is rapidly growing, especially in remote industries, disaster relief, and defense applications. CarbonLoop addresses a niche with high growth potential.</p>
-  
-  <p><strong>Technology Advantage:</strong> AI-driven energy flow control, modular reactor architecture, and advanced sensor networks provide unmatched reliability and adaptability compared to conventional systems.</p>
-</div>
-
 
 </body>
 </html>
+
 
 
 
