@@ -246,9 +246,32 @@
       document.getElementById("revealText").style.display = "block";
     }
   </script>
+  <script>
+  // 5 másodperc után indul a váltás
+  setTimeout(() => {
+    const img = document.getElementById("mainImage");
+    const text = document.getElementById("revealText");
+
+    // kép halványulása
+    img.style.opacity = "0";
+
+    // amikor a kép eltűnt (2s után), jön a szöveg
+    setTimeout(() => {
+      img.style.display = "none";
+      text.style.display = "block";
+
+      // szöveg lassan jelenjen meg
+      setTimeout(() => {
+        text.style.opacity = "1";
+      }, 50); // kis késleltetés, hogy a transition működjön
+    }, 2000);
+  }, 5000); // 5000 ms = 5 másodperc várakozás
+</script>
+
 
 </body>
 </html>
+
 
 
 
