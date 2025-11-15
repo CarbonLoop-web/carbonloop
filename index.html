@@ -204,43 +204,48 @@
 
 
      <div class="section contact" id="contact">
-      <h2>Contact</h2>
-      <p>Email: bajczikferenc@gmail.com</p>
-      <p>LinkedIn: <a href="https://www.linkedin.com/in/ferencbajczik" target="_blank">Ferenc Bajczik</a></p>
-    </div>
-  </div>
+  <h2>Contact</h2>
+  <p>Email: bajczikferenc@gmail.com</p>
+  <p>LinkedIn: <a href="https://www.linkedin.com/in/ferencbajczik" target="_blank">Ferenc Bajczik</a></p>
+</div>
 
-  <script>
-    function showText() {
-      const img = document.getElementById("mainImage");
-      const text = document.getElementById("revealText");
+<!-- Itt jön a lábléc vagy back-link -->
+<div class="back-link">
+  <a href="index-en.html">⬅️ Back to main page</a>
+</div>
 
-      img.style.opacity = "0";
-      setTimeout(() => {
-        img.style.display = "none";
-        text.style.display = "block";
-        setTimeout(() => { text.style.opacity = "1"; }, 50);
-      }, 2000);
-    }
+<script>
+  function showText() {
+    const img = document.getElementById("mainImage");
+    const text = document.getElementById("revealText");
 
-    function showImage() {
-      const img = document.getElementById("mainImage");
-      const text = document.getElementById("revealText");
+    img.style.opacity = "0";
+    setTimeout(() => {
+      img.style.display = "none";
+      text.style.display = "block";
+      setTimeout(() => { text.style.opacity = "1"; }, 50);
+    }, 2000);
+  }
 
-      text.style.opacity = "0";
-      setTimeout(() => {
-        text.style.display = "none";
-        img.style.display = "block";
-        setTimeout(() => { img.style.opacity = "1"; }, 50);
-      }, 2000);
-    }
+  function showImage() {
+    const img = document.getElementById("mainImage");
+    const text = document.getElementById("revealText");
 
-    // 5s után automatikus váltás
-    setTimeout(showText, 5000);
-  </script>
+    text.style.opacity = "0";
+    setTimeout(() => {
+      text.style.display = "none";
+      img.style.display = "block";
+      setTimeout(() => { img.style.opacity = "1"; }, 50);
+    }, 2000);
+  }
+
+  // 5s után automatikus váltás
+  setTimeout(showText, 5000);
+</script>
 
 </body>
 </html>
+
 
 
 
