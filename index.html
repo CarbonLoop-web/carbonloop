@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>CarbonLoop – Ferenc Bajczik</title>
+  <meta name="description" content="CarbonLoop – autonóm energiarendszer, Ferenc Bajczik projektje a tiszta energia jövőjéért.">
   <style>
-    /* Alap stílusok */
     :root {
       --bg: #f5f7fa;
       --text: #333;
@@ -18,6 +18,7 @@
     }
 
     * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
       margin: 0;
       font-family: 'Segoe UI', system-ui, -apple-system, Arial, sans-serif;
@@ -33,11 +34,6 @@
       padding: 40px 20px;
       text-align: center;
       border-bottom: 4px solid #003366;
-    }
-    header .logo {
-      width: 84px;
-      height: auto;
-      margin-bottom: 12px;
     }
     header h1 { margin: 8px 0 4px; font-size: 28px; }
     header p { margin: 0; opacity: 0.9; }
@@ -62,6 +58,10 @@
       transition: color .2s ease, background .2s ease;
     }
     nav a:hover { color: var(--accent); background: rgba(255,255,255,0.08); }
+    nav a.active {
+      background: rgba(255,255,255,0.2);
+      border-bottom: 2px solid var(--accent);
+    }
 
     /* Szekciók */
     section {
@@ -78,16 +78,16 @@
       font-size: 24px;
     }
 
-    /* CTA gombok blokk – FLEXBOX */
+    /* CTA gombok blokk */
     .buttons {
-      display: flex;            /* egymás mellett */
-      justify-content: center;  /* középre igazítás */
+      display: flex;
+      justify-content: center;
       align-items: center;
-      gap: 16px;                /* távolság a gombok között */
+      gap: 16px;
       margin: 28px auto;
       max-width: 1000px;
       padding: 0 20px;
-      flex-wrap: wrap;          /* mobilon sortörés */
+      flex-wrap: wrap;
     }
     .buttons a {
       background: var(--primary);
@@ -98,11 +98,11 @@
       border-radius: 8px;
       box-shadow: var(--shadow);
       transition: background .2s ease, transform .15s ease;
-      white-space: nowrap;      /* ne törje szavakat */
+      white-space: nowrap;
     }
     .buttons a:hover { background: #0066cc; transform: translateY(-1px); }
 
-    /* Kapcsolat kártya kicsit más háttérrel */
+    /* Kapcsolat */
     .contact {
       background: #eef3f8;
     }
@@ -142,7 +142,6 @@
 
   <!-- Fejléc -->
   <header>
-    <img src="carbonloop_logofo.png" alt="CarbonLoop logó" class="logo">
     <h1>CarbonLoop – Autonóm energiarendszer</h1>
     <p>Ferenc Bajczik – kreatív technológus</p>
   </header>
@@ -181,7 +180,7 @@
     <p>Multidiszciplináris csapat: fizikusok, mérnökök, fejlesztők és környezetvédelmi szakértők.</p>
   </section>
 
-  <!-- CTA gombok blokk -->
+  <!-- CTA gombok -->
   <div class="buttons">
     <a href="tamogatas.html">🤝 Támogatás</a>
     <a href="pdfoldal.html">📄 Bemutató megtekintése</a>
@@ -208,13 +207,9 @@
     <p>© 2025 CarbonLoop | <a href="index-en.html">English version</a></p>
   </footer>
 
-</body>
-</html>
-
-
-
-
-
+  <!-- Aktív menü kiemelés JS -->
+  <script>
+    const
 
 
 
