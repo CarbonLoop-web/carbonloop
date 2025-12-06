@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CarbonShop – Product Selection</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #eef2f3;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #2c3e50;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    .container {
+      max-width: 900px;
+      margin: 30px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h2, h3 {
+      color: #2c3e50;
+      margin-top: 30px;
+    }
+    label {
+      font-weight: bold;
+    }
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0 20px 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background-color: #27ae60;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .product-grid {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+    .product-item {
+      text-align: center;
+      cursor: pointer;
+      flex: 1 1 200px;
+    }
+    .product-item img {
+      height: 100px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 10px;
+      text-align: center;
+    }
+    th {
+      background-color: #f0f0f0;
+    }
+    .info-box {
+      background: #f9f9f9;
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 30px;
+    }
+    .back-button {
+      display:inline-block;
+      margin-bottom:20px;
+      background:#3498db;
+      color:white;
+      padding:10px 20px;
+      border-radius:5px;
+      text-decoration:none;
+    }
+    .top-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin: 20px 0;
+    }
+    .top-buttons a {
+      background-color: #004080;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      font-family: Arial, sans-serif;
+    }
+    .top-buttons a:hover {
+      background-color: #0066cc;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>CarbonShop – Product Selection</h1>
+    <p>Choose modules, calculate totals, and pre-order!</p>
+  </header>
+
+  <div class="top-buttons">
+    <a href="index-en.html">⬅️ Back to homepage</a>
+    <a href="carbonintro-en.html">ℹ️ Project Overview</a>
+  </div>
+
+  <div class="container">
+    <h2>🛒 Select Product</h2>
+    <div class="product-grid">
+      <div class="product-item" onclick="selectProduct('solar')">
+        <img src="solar.png" alt="Solar panel module">
+        <strong>Solar Panel Module</strong><br>$150
+        <p style="font-size:14px; color:#555;">300 kWh/year production, ideal for households.</p>
+      </div>
+      <div class="product-item" onclick="selectProduct('battery')">
+        <img src="battery.png" alt="Battery storage">
+        <strong>Battery Storage</strong><br>$350
+        <p style="font-size:14px; color:#555;">2 kWh/day storage, for night use.</p>
+      </div>
+      <div class="product-item" onclick="selectProduct('inverter')">
+        <img src="inverter.png" alt="Inverter">
+        <strong>Inverter</strong><br>$250
+        <p style="font-size:14px; color:#555;">DC → AC conversion, grid connection.</p>
+      </div>
+    </div>
+
+    <label for="quantity">Quantity:</label>
+    <input type="number" id="quantity" value="1" min="1" onchange="updatePrice()">
+    <p id="total">Total: $150</p>
+    <p id="payback">Payback: approx. 10 years</p>
+
+    <h3>📊 Comparison Table</h3>
+    <table>
+      <tr>
+        <th>Product</th>
+        <th>Price</th>
+        <th>Energy Yield</th>
+        <th>Payback</th>
+      </tr>
+      <tr>
+        <td>Solar Panel Module</td>
+        <td>$150</td>
+        <td>300 kWh/year</td>
+        <td>10–12 years</td>
+      </tr>
+      <tr>
+        <td>Battery Storage</td>
+        <td>$350</td>
+        <td>2 kWh/day</td>
+        <td>8–10 years</td>
+      </tr>
+      <tr>
+        <td>Inverter</td>
+        <td>$250</td>
+        <td>DC → AC</td>
+        <td>10 years</td>
+      </tr>
+    </table>
+
+    <div class="info-box">
+      <h3>🚚 Shipping</h3>
+      <ul>
+        <li>Within Hungary: 3–5 business days</li>
+        <li>Free shipping above $300</li>
+        <li>Courier service or personal pickup</li>
+      </ul>
+
+      <h3>🛡️ Warranty</h3>
+      <p>5 years full warranty on all products. Technical support available via email and phone.</p>
+    </div>
+
+    <section id="order" class="info-box">
+      <h2>📦 Pre-order</h2>
+      <form>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="product">Product type:</label>
+        <select id="product" name="product">
+          <option value="solar">Solar Panel Module</option>
+          <option value="battery">Battery Storage</option>
+          <option value="inverter">Inverter</option>
+        </select>
+
+        <label for="orderQuantity">Quantity:</label>
+        <input type="number" id="orderQuantity" name="quantity" min="1" value="1">
+
+        <button type="submit" onclick="event.preventDefault(); alert('Thank you, pre-order recorded!')">✅ Pre-order</button>
+      </form>
+      
+      <button onclick="generatePDF()" style="margin-top:20px; background:#34495e; color:white; padding:10px 20px; border:none; border-radius:5px; cursor:pointer;">
+        📄 Download PDF Offer
+      </button>
+    </section>
+
+    <a href="index-en.html#contact" class="back-button">📬 Questions? Back to contact page</a>
+  </div>
+
+  <script>
+    let prices = {
+      solar: 150,
+      battery: 350,
+      inverter: 250
+    };
+
+    let paybacks = {
+      solar: 10,
+      battery: 9,
+      inverter: 10
+    };
+
+    let selectedProduct = 'solar';
+
+    function selectProduct(product) {
+      selectedProduct = product;
+      updatePrice();
+    }
+
+    function updatePrice() {
+      const quantity = parseInt(document.getElementById("quantity").value);
+      const price = prices[selectedProduct];
+      const payback = paybacks[selectedProduct];
+      document.getElementById("total").innerText = `Total: $${price * quantity}`;
+      document.getElementById("payback").innerText = `Payback: approx. ${payback} years`;
+    }
+
+    function generatePDF() {
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+      const product = document.getElementById("product").value;
+      const quantity = document.getElementById("orderQuantity
