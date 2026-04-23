@@ -8,16 +8,17 @@
 
   <style>
     body {
-      font-family: 'Segoe UI', sans-serif;
+      font-family: 'Segoe UI', system-ui, -apple-system, Arial, sans-serif;
       margin: 0;
       padding: 0;
       background: #f5f7fa;
       color: #333;
+      line-height: 1.6;
     }
 
     header {
       background: linear-gradient(90deg, #002b5c, #004080);
-      color: white;
+      color: #fff;
       padding: 40px 20px;
       text-align: center;
       border-bottom: 4px solid #003366;
@@ -34,7 +35,7 @@
       color: #fff;
       margin: 0 12px;
       text-decoration: none;
-      font-weight: bold;
+      font-weight: 600;
       display: inline-block;
       padding: 6px 8px;
       border-radius: 6px;
@@ -44,7 +45,7 @@
 
     section {
       background: #fff;
-      max-width: 900px;
+      max-width: 1000px;
       margin: 28px auto;
       padding: 28px;
       border-radius: 12px;
@@ -52,7 +53,8 @@
     }
     h2 {
       color: #004080;
-      margin-bottom: 15px;
+      margin-bottom: 16px;
+      font-size: 24px;
     }
 
     .buttons {
@@ -75,6 +77,16 @@
     }
     .buttons a:hover { background: #0066cc; transform: translateY(-1px); }
 
+    .contact {
+      background: #eef3f8;
+    }
+    .contact a {
+      color: #004080;
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .contact a:hover { text-decoration: underline; }
+
     footer {
       background: #004080;
       color: #fff;
@@ -85,7 +97,7 @@
     }
     footer a {
       color: #ffdd00;
-      font-weight: bold;
+      font-weight: 700;
       text-decoration: none;
     }
     footer a:hover { text-decoration: underline; }
@@ -105,9 +117,10 @@
     <a href="#home">🏠 Home</a>
     <a href="#status">📡 Status</a>
     <a href="#project">📘 Project</a>
+    <a href="#kids">🧒 Kids Version</a>
     <a href="#tech">⚙️ Technology</a>
     <a href="#team">👥 Team</a>
-    <a href="#investors">💼 For Investors</a>
+    <a href="#investors">💼 Investors</a>
     <a href="#contact">📬 Contact</a>
     <a href="carbonshop-en.html">📦 CarbonShop</a>
     <a href="carbonintro.html">ℹ️ Project Overview</a>
@@ -155,6 +168,31 @@
     <p>The technology reduces cooling energy demand, mitigates urban heat island effects, and introduces a new net‑zero category in clean‑tech urban infrastructure.</p>
   </section>
 
+  <!-- ⭐ Kids Version Block -->
+  <section id="kids" style="
+    max-width: 1000px;
+    margin: 28px auto;
+    padding: 40px 28px;
+    border-radius: 16px;
+    background: #fff8e6;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    text-align: center;
+  ">
+    <h2 style="color:#d48806; font-size:26px; margin-bottom:12px;">
+      CarbonLoop for Kids – Coming Soon
+    </h2>
+
+    <p style="font-size:18px; max-width:800px; margin:0 auto; opacity:0.9;">
+      The kids version of CarbonLoop introduces natural cooling in a playful, easy‑to‑understand way,
+      helping children learn how water, soil and air work together to cool the city.
+    </p>
+
+    <p style="font-size:17px; max-width:800px; margin:20px auto 0; opacity:0.8;">
+      This section is currently under development.  
+      Later it will include stories, drawings, simple explanations and animations.
+    </p>
+  </section>
+
   <!-- Technology -->
   <section id="tech">
     <h2>Technology</h2>
@@ -177,7 +215,7 @@
 
   <!-- Investors -->
   <section id="investors">
-    <h2>For Investors</h2>
+    <h2>Investors</h2>
     <p><strong>Business Model:</strong> Licensing, pilot deployments, strategic partnerships.</p>
     <p><strong>Market Demand:</strong> Rapidly increasing global need for nature‑based microclimate and cooling technologies.</p>
     <p><strong>Technological Advantages:</strong> Energy independence, low installation cost, modular structure, natural operation.</p>
@@ -185,7 +223,7 @@
   </section>
 
   <!-- Contact -->
-  <section id="contact">
+  <section id="contact" class="contact">
     <h2>Contact</h2>
     <p>Email: <a href="mailto:bajczikferenc@gmail.com">bajczikferenc@gmail.com</a></p>
     <p>LinkedIn: <a href="https://www.linkedin.com/in/ferenc-bajczik-822463396" target="_blank">Ferenc Bajczik</a></p>
@@ -198,7 +236,6 @@
 
 </body>
 </html>
-
 
 
 
